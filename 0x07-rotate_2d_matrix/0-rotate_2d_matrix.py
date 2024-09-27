@@ -1,20 +1,16 @@
-{
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint",
-    "check-lint": "lint [0-9]*.js",
-    "test": "jest",
-    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "eslint": "^6.4.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.17.0",
-    "jest": "^24.9.0"
-  },
-  "dependencies": {
-    "immutable": "^4.0.0-rc.12"
-  }
-}
+#!/usr/bin/python3
+""" Rotate 2D Matrix """
+
+
+def rotate_2d_matrix(matrix):
+    """ Given `n` x `n` 2D Matrix
+    Rotate it 90 degrees clockwise
+    """
+    # Replica Matrix
+    replica = matrix[:]
+
+    for i in range(len(matrix)):
+        # retract column from replica
+        column = [row[i] for row in replica]
+        # Replace in matrix in reverse order
+        matrix[i] = column[::-1]
